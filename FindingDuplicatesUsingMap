@@ -1,0 +1,22 @@
+Time Complexity : O(n)
+public class MyClass {
+    public static void main(String args[]) {
+     
+     int arr[] = {8,2,3,22,18,6};
+     System.out.println(findDuplicates(arr));
+     
+    }
+    
+    public static int findDuplicates(int[] arr){
+        int n = arr.length;
+        java.util.Map<Integer,Integer> map = new java.util.HashMap<>();
+        for (int i=0;i<n;i++){
+            if (map.get(arr[i]) != null ){
+               return arr[i];
+            }else {
+                map.put(arr[i],1);
+            }
+        } 
+        return -1;
+    }
+}
