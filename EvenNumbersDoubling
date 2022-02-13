@@ -1,5 +1,9 @@
 // Given an array of numbers,replace with same number when a number is even.
 // arr[] = { 2,4,1,0,3 }
+// Reverse Traversal 
+// Finding the last no, -1 for extra spaces.
+// if even, put it on the end and put the same no again in next place 
+// if odd put it on the end, just move ahead.
 
 public class MyClass {
     public static void main(String args[]) {
@@ -19,6 +23,7 @@ public class MyClass {
             }
         }
     
+    //Imp Lines 
        while (lastIndex >= 0){
            if (arr[lastIndex]%2 == 0){
                arr[--end]=arr[lastIndex];
