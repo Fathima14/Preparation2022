@@ -1,0 +1,57 @@
+//Time - O(n)
+//sum < target => end ++ [ increase the window ]
+//sum > target = > sum = sum - a[start], start++ [ decrease the window]
+class Pair{
+    
+    private int x;
+    private int y;
+    
+    Pair(int x, int y){
+       this.x = x;
+       this.y = y;
+    }
+    
+    public String toString(){
+       return (this.x +" "+ this.y);
+    }
+}
+
+public class MyClass {
+   
+    public static void main(String args[]) {
+      int[] arr = {5,3,1,7,6,4,2,3};
+      int target = 20;
+      System.out.println(subArrayXTarget(arr,target));
+    }
+    
+    public static Pair subArrayXTarget(int[] arr, int x){
+        int start = 0;
+        int end = 0;
+        int sum = arr[0];
+        int len = arr.length;
+        
+        while (start < len ){
+            // if a number > target this condition will come 
+            // we need to restart with remaining array of numbers
+            if (start > end ){
+                end = start;
+                sum = arr[start];    
+            }
+            if (sum > x ){
+              sum = sum - arr[start];
+              start++;
+            } else if (sum < x){
+                if (end == (len-1)) break; // to avoid ArrayIndexOutOfBound exeception
+                end++;
+                sum = sum + arr[end];
+            } else {
+                return (new Pair(start, end));
+            } 
+        }
+        
+        return null;
+    }
+    
+}
+
+
