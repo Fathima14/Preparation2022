@@ -1,0 +1,55 @@
+//Time - O(n)
+// two clouds one at the front and and at the end
+// Move other than pivot to the front & end clouds, by swapping with current index no
+// Partinioning Arrays
+// Dutch National Flag Problem
+// it can be asked in splitting 3different things grouping to three different sets each at 
+// front , middle , end 
+// imagine Indian National Flag - saffron, white, green ( moving them to correct place )
+
+public class MyClass {
+   
+    public static void main(String args[]) {
+      int[] arr = {1,4,5,4,3,6,2,4};
+      //output :  [ 1,2,3,4,4,4,5,6]
+      
+      int pivot = 4;
+      arr = dutchNationalFlagProblem(arr,pivot);
+      for (int a : arr){
+          System.out.print( a + ", ");
+      }
+    }
+    
+    public static int[] dutchNationalFlagProblem(int[] a, int pivot){
+        
+        int len = a.length;
+        int highBoundary = len-1;
+        int lowBoundary = 0;
+        int temp=0;
+        int i=0;
+        
+        // IMP LINES
+        while (i <= highBoundary){
+           if (a[i] < 4) {
+               temp = a[lowBoundary];
+               a[lowBoundary]= a[i];
+               a[i] = temp;
+               lowBoundary++;
+               i++;
+            } else if (a[i] > 4) {
+               temp = a[highBoundary];
+               a[highBoundary]= a[i];
+               a[i] = temp;
+               highBoundary--;
+            }else {
+                i++;
+            }
+        }
+        
+        return a;
+    }
+    
+}
+
+
+
