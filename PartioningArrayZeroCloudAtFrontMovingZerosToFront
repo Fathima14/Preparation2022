@@ -1,0 +1,34 @@
+//Time - O(n)
+// LowBoundary zero cloud in front 
+// Move zeros to the begining, by swapping with current index no
+// Partioning Arrays
+
+public class MyClass {
+   
+    public static void main(String args[]) {
+      int[] arr = {2,4,0,3,0,1,0};
+      arr = movingIntoZeroCloudAtFront(arr);
+      for (int a : arr){
+          System.out.print( a + ", ");
+      }
+    }
+    
+    public static int[] movingIntoZeroCloudAtFront(int[] a){
+        
+        int lowBoundary = 0;
+        int len = a.length;
+        int temp=0;
+        
+        for(int i=0;i<len;i++){
+            if (a[i] == 0) {
+               temp = a[lowBoundary];
+               a[lowBoundary]= a[i];
+               a[i] = temp;
+               lowBoundary++;
+            }
+        }
+        
+        return a;
+    }
+    
+}
