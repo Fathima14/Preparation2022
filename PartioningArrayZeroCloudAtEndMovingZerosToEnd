@@ -1,0 +1,34 @@
+//Time - O(n)
+// highBoundary zero cloud in end
+// Move zeros to the end, by swapping with current index no with highBoundary
+// Partinioning Arrays
+
+public class MyClass {
+   
+    public static void main(String args[]) {
+      int[] arr = {2,4,0,3,0,1,0};
+      arr = movingIntoZeroCloudAtEnd(arr);
+      for (int a : arr){
+          System.out.print( a + ", ");
+      }
+    }
+    
+    public static int[] movingIntoZeroCloudAtEnd(int[] a){
+        
+        int len = a.length;
+        int highBoundary = len-1;
+        int temp=0;
+        
+        for(int i=highBoundary;i>=0;i--){
+            if (a[i] == 0) {
+               temp = a[highBoundary];
+               a[highBoundary]= a[i];
+               a[i] = temp;
+               highBoundary--;
+            }
+        }
+        
+        return a;
+    }
+    
+}
